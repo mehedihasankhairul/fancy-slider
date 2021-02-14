@@ -14,7 +14,7 @@ let sliders = [];
 // If this key doesn't work
 // Find the name in the url and go to their website
 // to create your own api key
-const KEY = '15674931-a9d714b6e9d654524df1&q';
+const KEY =  '15674931-a9d714b6e9d654524df198e00&q';
 
 // show images 
 const showImages = (images) => {
@@ -49,18 +49,31 @@ const selectItem = (event, img) => {
   let selectImg = parseInt(imgCount);
 
   let item = sliders.indexOf(img);
+
   if (item === -1) {
     sliders.push(img);
     let totalImg = selectImg + 1;
     document.getElementById("select-images").innerText = totalImg;
-  } else {
+  } 
+  
+  else {
     element.classList.remove('added')
     sliders.pop(img);
+
     let totalSelect = selectImg - 1;
     document.getElementById("select-images").innerText = totalSelect;
 
   }
 }
+
+document.getElementById("create-slider").addEventListener('click', () => {
+  document.getElementById("select-images").innerText = 0;
+  
+})
+
+
+
+
 // Extra Features 
 // API Loader spring 
 const toggleSpinner = (loading) => {
@@ -72,13 +85,8 @@ const toggleSpinner = (loading) => {
     spinner.classList.add("d-none")
   }
 }
-
 // API Loader Spring End
 
-
-// slider dot
-
-// slider dot end
 
 var timer
 const createSlider = () => {
@@ -98,6 +106,9 @@ const createSlider = () => {
 
   sliderContainer.appendChild(prevNext)
   document.querySelector('.main').style.display = 'block';
+
+
+
   // hide image aria
   imagesArea.style.display = 'none';
 
@@ -124,6 +135,8 @@ const createSlider = () => {
     changeSlide(slideIndex);
   }, duration);
 }
+
+
 
 // change slider index 
 const changeItem = index => {
